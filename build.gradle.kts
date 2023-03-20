@@ -6,6 +6,8 @@ plugins {
     kotlin("jvm") version "1.7.22"
     kotlin("plugin.spring") version "1.7.22"
     kotlin("plugin.serialization") version "1.5.31"
+
+    id("org.openjfx.javafxplugin") version "0.0.10"
 }
 
 group = "br.com.devrodrigues"
