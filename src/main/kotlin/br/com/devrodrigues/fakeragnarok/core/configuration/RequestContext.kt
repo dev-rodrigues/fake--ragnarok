@@ -6,7 +6,7 @@ import kotlinx.coroutines.withContext
 import org.springframework.web.reactive.function.server.ServerResponse
 
 suspend inline fun withRequestContext(
-    noinline block: suspend CoroutineScope.(Context) -> ServerResponse
+    noinline block: suspend CoroutineScope.(Context) -> ServerResponse,
 ): ServerResponse {
     val context = currentWazeContext()
 

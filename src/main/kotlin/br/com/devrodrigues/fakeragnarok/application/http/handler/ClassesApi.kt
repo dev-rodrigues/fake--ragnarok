@@ -10,7 +10,7 @@ class ClassesApi {
 
     suspend fun get(request: ServerRequest): ServerResponse {
         return ServerResponse.ok().bodyValueAndAwait(
-            body = "ok"
+            body = "ok",
         )
     }
 }

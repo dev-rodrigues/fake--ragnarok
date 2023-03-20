@@ -7,44 +7,44 @@ abstract class Validator {
         agility: Int,
         dexterity: Int,
         luck: Int,
-        intelligence: Int
+        intelligence: Int,
     ): Boolean
 }
 
-class ArcherValidator: Validator() {
+class ArcherValidator : Validator() {
     override fun attributes(
         strength: Int,
         vitality: Int,
         agility: Int,
         dexterity: Int,
         luck: Int,
-        intelligence: Int
+        intelligence: Int,
     ): Boolean {
         TODO("Not yet implemented")
     }
 }
 
-class MageValidator: Validator() {
+class MageValidator : Validator() {
     override fun attributes(
         strength: Int,
         vitality: Int,
         agility: Int,
         dexterity: Int,
         luck: Int,
-        intelligence: Int
+        intelligence: Int,
     ): Boolean {
         TODO("Not yet implemented")
     }
 }
 
-class SwordsmanValidator: Validator() {
+class SwordsmanValidator : Validator() {
     override fun attributes(
         strength: Int,
         vitality: Int,
         agility: Int,
         dexterity: Int,
         luck: Int,
-        intelligence: Int
+        intelligence: Int,
     ): Boolean {
         TODO("Not yet implemented")
     }

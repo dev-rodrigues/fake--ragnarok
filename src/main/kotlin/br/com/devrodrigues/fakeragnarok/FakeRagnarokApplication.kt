@@ -7,10 +7,9 @@ import org.springframework.boot.runApplication
 @SpringBootApplication
 class FakeRagnarokApplication : CommandLineRunner {
     override fun run(vararg args: String?) {
-
     }
 }
 
-fun main(args: Array<String>){
+fun main(args: Array<String>) {
     runApplication<FakeRagnarokApplication>(*args)
 }

@@ -7,7 +7,6 @@ import org.springframework.web.reactive.function.server.ServerResponse
 import org.springframework.web.reactive.function.server.bodyValueAndAwait
 
 suspend fun Throwable.toServerResponse(): ServerResponse {
-
     val (statusCode, response) = toResponse()
 
     return ServerResponse.status(statusCode).bodyValueAndAwait(response)
@@ -18,7 +17,6 @@ private fun Throwable.toResponse(): Pair<HttpStatus, ErrorResponse> = when (this
         is Exceptions.NotFoundException -> HttpStatus.NOT_FOUND to ErrorResponse(
             message = "not found",
         )
-
     }
 
     else -> {

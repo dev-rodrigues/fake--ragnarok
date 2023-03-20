@@ -6,8 +6,7 @@ import kotlin.coroutines.coroutineContext
 
 suspend inline fun currentWazeContext(): Context = coroutineContext[Context] ?: Context()
 
-class Context(
-) : AbstractCoroutineContextElement(Key) {
+class Context() : AbstractCoroutineContextElement(Key) {
     companion object Key : CoroutineContext.Key<Context>
 
     override operator fun plus(context: CoroutineContext) = when (context) {

@@ -1,5 +1,5 @@
-package br.com.devrodrigues.fakeragnarok.application.http.handler.dto
+package br.com.devrodrigues.fakeragnarok.application.http.handler.dto // ktlint-disable filename
 
 data class ErrorResponse(
-    val message: String
+    val message: String,
 )
