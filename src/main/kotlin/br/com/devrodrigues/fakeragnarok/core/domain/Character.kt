@@ -14,8 +14,7 @@ abstract class Character(
     var level: Int = 1
         private set
 
-    var experience: Int = 1
-        private set
+    private var experience: Int = 1
 
     var skillPoints: Int = 0
         private set
@@ -25,6 +24,8 @@ abstract class Character(
     abstract fun life(): Int
 
     abstract val healthPerLevel: Int
+
+    abstract fun attack(enemy: Enemy)
 
     private fun levelUp() {
         level++
@@ -71,6 +72,27 @@ abstract class Character(
         }
     }
 
+    fun patron(map: MapGame) {
+        val currentPosition = map.getCharacterPosition(this)
+
+        // verifica se posso atacar o inimigo
+        for(enemy in map.spots) {
+            if (map.isAdjacent(currentPosition, enemy.position)) {
+                attack(enemy)
+                return
+            }
+        }
+
+        //
+        val validDirection = map.getValidMoves(currentPosition)
+        if (validDirection.isNotEmpty()) {
+            val direction = validDirection.random()
+            val newPosition = map.move(currentPosition, direction)
+            map.moveCharacter(this, newPosition)
+        }
+    }
+
+
     companion object {
         fun getAttributes(character: Character): Map<String, Int> {
             return mapOf(
@@ -105,6 +127,10 @@ class Archer(
     override val healthPerLevel: Int
         get() = 20
 
+    override fun attack(enemy: Enemy) {
+        TODO("Not yet implemented")
+    }
+
     override fun damage(): Int {
         val baseDamage = (agility + dexterity) / 2
         val criticalChance = luck * 0.1
@@ -138,6 +164,10 @@ class Swordsman(
     override val healthPerLevel: Int
         get() = 10
 
+    override fun attack(enemy: Enemy) {
+        TODO("Not yet implemented")
+    }
+
     override fun damage(): Int {
         val baseDamage = (strength + agility) / 2
         val criticalChance = luck * 0.1
@@ -170,6 +200,10 @@ class Mage(
 
     override val healthPerLevel: Int
         get() = 6
+
+    override fun attack(enemy: Enemy) {
+        TODO("Not yet implemented")
+    }
 
     override fun damage(): Int {
         val baseDamage = (intelligence + agility) / 2
